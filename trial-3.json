@@ -1,0 +1,1078 @@
+{
+  "url": "http://127.0.0.1:43815",
+  "healthz": true,
+  "scenario_seed": "6a09e667f3bcc909",
+  "manifest_issues": [],
+  "counts": {
+    "registered": 120,
+    "manifest_total": 120,
+    "passed": 80,
+    "mcp_passed": 15,
+    "by_group": {
+      "git": {
+        "passed": 1,
+        "total": 30
+      },
+      "repos": {
+        "passed": 14,
+        "total": 15
+      },
+      "issues": {
+        "passed": 15,
+        "total": 15
+      },
+      "pulls": {
+        "passed": 15,
+        "total": 20
+      },
+      "protocol": {
+        "passed": 5,
+        "total": 5
+      },
+      "graphql": {
+        "passed": 15,
+        "total": 20
+      },
+      "mcp": {
+        "passed": 15,
+        "total": 15
+      }
+    }
+  },
+  "checks": [
+    {
+      "id": "git.advertise-v2",
+      "group": "git",
+      "title": "protocol v2 capability advertisement is served and well formed",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-advertise-v2 failed: unpack failed: okok refs/heads/main",
+      "ms": 43
+    },
+    {
+      "id": "git.advertise-receive-pack",
+      "group": "git",
+      "title": "receive-pack serves a v0 ref advertisement with push capabilities",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-advertise-receive-pack failed: unpack failed: okok refs/heads/main",
+      "ms": 11
+    },
+    {
+      "id": "git.advertise-headers",
+      "group": "git",
+      "title": "info/refs answers the smart-HTTP content type and preamble",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-advertise-headers failed: unpack failed: okok refs/heads/main",
+      "ms": 10
+    },
+    {
+      "id": "git.unknown-repo-404",
+      "group": "git",
+      "title": "a missing repository advertises 404 and the server stays up",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-unknown-repo failed: unpack failed: okok refs/heads/main",
+      "ms": 8
+    },
+    {
+      "id": "git.ls-refs",
+      "group": "git",
+      "title": "v2 ls-refs reports refs, HEAD symref and peeled tags",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-ls-refs failed: unpack failed: okok refs/heads/main",
+      "ms": 8
+    },
+    {
+      "id": "git.ls-refs-prefix",
+      "group": "git",
+      "title": "v2 ls-refs honours ref-prefix filtering",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-ls-refs-prefix failed: unpack failed: okok refs/heads/main",
+      "ms": 7
+    },
+    {
+      "id": "git.clone-empty",
+      "group": "git",
+      "title": "a repository with no refs clones as an empty repository",
+      "ok": true,
+      "detail": "0 refs; unborn HEAD → refs/heads/main; no objects transferred",
+      "ms": 13
+    },
+    {
+      "id": "git.push-first-commit",
+      "group": "git",
+      "title": "a first commit pushes to an unborn branch and becomes the tip",
+      "ok": false,
+      "detail": "unpack failed: okok refs/heads/main",
+      "ms": 35
+    },
+    {
+      "id": "git.clone-object-hashes",
+      "group": "git",
+      "title": "a full clone verifies object-for-object",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-clone-object-hashes failed: unpack failed: okok refs/heads/main",
+      "ms": 8
+    },
+    {
+      "id": "git.clone-blob-bytes",
+      "group": "git",
+      "title": "every cloned blob equals the pushed bytes",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-clone-blob-bytes failed: unpack failed: okok refs/heads/main",
+      "ms": 7
+    },
+    {
+      "id": "git.clone-tree-entries",
+      "group": "git",
+      "title": "cloned trees round-trip paths, modes and nested directories",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-clone-tree-entries failed: unpack failed: okok refs/heads/main",
+      "ms": 8
+    },
+    {
+      "id": "git.clone-commit-bytes",
+      "group": "git",
+      "title": "commit objects round-trip byte-exactly with their metadata",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-clone-commit-bytes failed: unpack failed: okok refs/heads/main",
+      "ms": 7
+    },
+    {
+      "id": "git.clone-annotated-tag",
+      "group": "git",
+      "title": "an annotated tag object round-trips and peels to its commit",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-clone-annotated-tag failed: unpack failed: okok refs/heads/main",
+      "ms": 6
+    },
+    {
+      "id": "git.fetch-incremental",
+      "group": "git",
+      "title": "an incremental fetch sends only the new objects and advances the tip",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-fetch-incremental failed: unpack failed: okok refs/heads/main",
+      "ms": 8
+    },
+    {
+      "id": "git.fetch-nothing-new",
+      "group": "git",
+      "title": "a fetch with the tip already held transfers no objects",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-fetch-nothing-new failed: unpack failed: okok refs/heads/main",
+      "ms": 6
+    },
+    {
+      "id": "git.fetch-shallow-depth1",
+      "group": "git",
+      "title": "a depth-1 shallow clone lands the tip only",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-fetch-shallow-depth1 failed: unpack failed: okok refs/heads/main",
+      "ms": 6
+    },
+    {
+      "id": "git.fetch-shallow-deepen",
+      "group": "git",
+      "title": "deepen 2 extends a shallow clone by exactly one generation",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-fetch-shallow-deepen failed: unpack failed: okok refs/heads/main",
+      "ms": 6
+    },
+    {
+      "id": "git.fetch-shallow-new-tip",
+      "group": "git",
+      "title": "a shallow fetch of a new tip does not pull the old history",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-fetch-shallow-new-tip failed: unpack failed: okok refs/heads/main",
+      "ms": 7
+    },
+    {
+      "id": "git.push-update-ref",
+      "group": "git",
+      "title": "a fast-forward update moves a branch and clones see it",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-push-update-ref failed: unpack failed: okok refs/heads/main",
+      "ms": 6
+    },
+    {
+      "id": "git.push-create-branch",
+      "group": "git",
+      "title": "creating a branch from an existing commit is reported and advertised",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-push-create-branch failed: unpack failed: okok refs/heads/main",
+      "ms": 6
+    },
+    {
+      "id": "git.push-delete-branch",
+      "group": "git",
+      "title": "deleting a branch is reported and removes the ref",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-push-delete-branch failed: unpack failed: okok refs/heads/main",
+      "ms": 7
+    },
+    {
+      "id": "git.push-non-fast-forward",
+      "group": "git",
+      "title": "a non-fast-forward update is refused per-ref and changes nothing",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-push-non-fast-forward failed: unpack failed: okok refs/heads/main",
+      "ms": 6
+    },
+    {
+      "id": "git.push-mixed-report",
+      "group": "git",
+      "title": "one command list reports ok and ng per ref, and applies only the ok one",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-push-mixed-report failed: unpack failed: okok refs/heads/main",
+      "ms": 6
+    },
+    {
+      "id": "git.push-delete-tag",
+      "group": "git",
+      "title": "deleting a tag ref is reported and removes the ref",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-push-delete-tag failed: unpack failed: okok refs/heads/main",
+      "ms": 6
+    },
+    {
+      "id": "git.push-100-files",
+      "group": "git",
+      "title": "a 100-file single-commit push round-trips byte-exactly",
+      "ok": false,
+      "detail": "unpack failed: okok refs/heads/main",
+      "ms": 24
+    },
+    {
+      "id": "git.pack-integrity",
+      "group": "git",
+      "title": "a fetched pack is structurally valid and checksummed",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-pack-integrity failed: unpack failed: okok refs/heads/main",
+      "ms": 7
+    },
+    {
+      "id": "git.pack-deltas",
+      "group": "git",
+      "title": "delta-compressed objects resolve correctly (when the server sends them)",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-pack-deltas failed: unpack failed: okok refs/heads/main",
+      "ms": 7
+    },
+    {
+      "id": "git.sideband-framing",
+      "group": "git",
+      "title": "the fetch packfile section is valid sideband framing",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-sideband-framing failed: unpack failed: okok refs/heads/main",
+      "ms": 7
+    },
+    {
+      "id": "git.push-sideband-report",
+      "group": "git",
+      "title": "the push report arrives in valid sideband frames",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-push-sideband-report failed: unpack failed: okok refs/heads/main",
+      "ms": 7
+    },
+    {
+      "id": "git.repo-survives-errors",
+      "group": "git",
+      "title": "the server stays healthy through 404s, refusals and a malformed request",
+      "ok": false,
+      "detail": "threw Error: setup push to gitconf-repo-survives-errors failed: unpack failed: okok refs/heads/main",
+      "ms": 8
+    },
+    {
+      "id": "repos.pagination",
+      "group": "repos",
+      "title": "GET /user/repos pages 30 seeded repos at per_page=10 through Link rel=\"next\"",
+      "ok": true,
+      "detail": "GET /user/repos pages 30 seeded repos at per_page=10 through Link rel=\"next\": ok",
+      "ms": 99
+    },
+    {
+      "id": "repos.root",
+      "group": "repos",
+      "title": "GET /api/v3/ answers 200 JSON with X-OAuth-Scopes",
+      "ok": true,
+      "detail": "GET /api/v3/ answers 200 JSON with X-OAuth-Scopes: ok",
+      "ms": 2
+    },
+    {
+      "id": "repos.meta",
+      "group": "repos",
+      "title": "GET /api/v3/meta reports installed_version",
+      "ok": true,
+      "detail": "GET /api/v3/meta reports installed_version: ok",
+      "ms": 1
+    },
+    {
+      "id": "repos.create",
+      "group": "repos",
+      "title": "POST /user/repos creates and GET round-trips name, private and default_branch",
+      "ok": true,
+      "detail": "POST /user/repos creates and GET round-trips name, private and default_branch: ok",
+      "ms": 4
+    },
+    {
+      "id": "repos.not-found",
+      "group": "repos",
+      "title": "GET a missing repository is a JSON 404",
+      "ok": true,
+      "detail": "GET a missing repository is a JSON 404: ok",
+      "ms": 2
+    },
+    {
+      "id": "repos.patch",
+      "group": "repos",
+      "title": "PATCH /repos/{o}/{r} updates the description",
+      "ok": true,
+      "detail": "PATCH /repos/{o}/{r} updates the description: ok",
+      "ms": 8
+    },
+    {
+      "id": "repos.delete",
+      "group": "repos",
+      "title": "DELETE /repos/{o}/{r} deletes it and a later GET is 404",
+      "ok": true,
+      "detail": "DELETE /repos/{o}/{r} deletes it and a later GET is 404: ok",
+      "ms": 14
+    },
+    {
+      "id": "repos.branches",
+      "group": "repos",
+      "title": "GET /branches lists a branch created through POST /git/refs",
+      "ok": true,
+      "detail": "GET /branches lists a branch created through POST /git/refs: ok",
+      "ms": 10
+    },
+    {
+      "id": "repos.commits",
+      "group": "repos",
+      "title": "GET /commits reflects a commit made on a branch and not the default branch",
+      "ok": false,
+      "detail": "GET /api/v3/repos/adaiversen/amber-thistle-repos-commits/commits?sha=develop-commits: does not list the commit 2b25a5645a1156b615ce77402135a38ff45b18f4 created on develop-commits",
+      "ms": 11
+    },
+    {
+      "id": "repos.unauthorized",
+      "group": "repos",
+      "title": "a request without a token is 401",
+      "ok": true,
+      "detail": "a request without a token is 401: ok",
+      "ms": 6
+    },
+    {
+      "id": "repos.foreign-token",
+      "group": "repos",
+      "title": "the same repository name under another owner is a 404 for this token",
+      "ok": true,
+      "detail": "the same repository name under another owner is a 404 for this token: ok",
+      "ms": 5
+    },
+    {
+      "id": "repos.contents-create",
+      "group": "repos",
+      "title": "PUT /contents creates a file with a commit; GET returns base64 content and sha",
+      "ok": true,
+      "detail": "PUT /contents creates a file with a commit; GET returns base64 content and sha: ok",
+      "ms": 11
+    },
+    {
+      "id": "repos.contents-directory",
+      "group": "repos",
+      "title": "GET /contents on a directory lists its entries",
+      "ok": true,
+      "detail": "GET /contents on a directory lists its entries: ok",
+      "ms": 11
+    },
+    {
+      "id": "repos.contents-stale-sha",
+      "group": "repos",
+      "title": "PUT /contents with a stale sha is 409",
+      "ok": true,
+      "detail": "PUT /contents with a stale sha is 409: ok",
+      "ms": 8
+    },
+    {
+      "id": "repos.contents-delete",
+      "group": "repos",
+      "title": "DELETE /contents removes the file with a commit and GET is 404",
+      "ok": true,
+      "detail": "DELETE /contents removes the file with a commit and GET is 404: ok",
+      "ms": 9
+    },
+    {
+      "id": "issues.create",
+      "group": "issues",
+      "title": "POST /issues creates a 201 open issue with a number",
+      "ok": true,
+      "detail": "POST /issues creates a 201 open issue with a number: ok",
+      "ms": 9
+    },
+    {
+      "id": "issues.create-title-body",
+      "group": "issues",
+      "title": "POST /issues echoes the title and body",
+      "ok": true,
+      "detail": "POST /issues echoes the title and body: ok",
+      "ms": 8
+    },
+    {
+      "id": "issues.create-labels",
+      "group": "issues",
+      "title": "POST /issues attaches an existing label",
+      "ok": true,
+      "detail": "POST /issues attaches an existing label: ok",
+      "ms": 7
+    },
+    {
+      "id": "issues.numbers-increment",
+      "group": "issues",
+      "title": "issue numbers increment by one",
+      "ok": true,
+      "detail": "issue numbers increment by one: ok",
+      "ms": 7
+    },
+    {
+      "id": "issues.list-open",
+      "group": "issues",
+      "title": "GET /issues?state=open lists the open issue",
+      "ok": true,
+      "detail": "GET /issues?state=open lists the open issue: ok",
+      "ms": 10
+    },
+    {
+      "id": "issues.list-open-excludes-closed",
+      "group": "issues",
+      "title": "GET /issues?state=open omits a closed issue",
+      "ok": true,
+      "detail": "GET /issues?state=open omits a closed issue: ok",
+      "ms": 9
+    },
+    {
+      "id": "issues.list-sort-asc",
+      "group": "issues",
+      "title": "GET /issues?sort=created&direction=asc orders by creation",
+      "ok": true,
+      "detail": "GET /issues?sort=created&direction=asc orders by creation: ok",
+      "ms": 9
+    },
+    {
+      "id": "issues.list-sort-desc",
+      "group": "issues",
+      "title": "GET /issues?sort=created&direction=desc reverses it",
+      "ok": true,
+      "detail": "GET /issues?sort=created&direction=desc reverses it: ok",
+      "ms": 12
+    },
+    {
+      "id": "issues.list-shape",
+      "group": "issues",
+      "title": "GET /issues returns the GitHub issue shape",
+      "ok": true,
+      "detail": "GET /issues returns the GitHub issue shape: ok",
+      "ms": 8
+    },
+    {
+      "id": "issues.get-one",
+      "group": "issues",
+      "title": "GET /issues/{n} returns the issue",
+      "ok": true,
+      "detail": "GET /issues/{n} returns the issue: ok",
+      "ms": 9
+    },
+    {
+      "id": "issues.patch-close",
+      "group": "issues",
+      "title": "PATCH /issues/{n} closes it",
+      "ok": true,
+      "detail": "PATCH /issues/{n} closes it: ok",
+      "ms": 8
+    },
+    {
+      "id": "issues.patch-close-persists",
+      "group": "issues",
+      "title": "the close survives a later GET",
+      "ok": true,
+      "detail": "the close survives a later GET: ok",
+      "ms": 9
+    },
+    {
+      "id": "issues.comment-create",
+      "group": "issues",
+      "title": "POST /issues/{n}/comments creates a comment",
+      "ok": true,
+      "detail": "POST /issues/{n}/comments creates a comment: ok",
+      "ms": 8
+    },
+    {
+      "id": "issues.comments-list",
+      "group": "issues",
+      "title": "GET /issues/{n}/comments lists the comment",
+      "ok": true,
+      "detail": "GET /issues/{n}/comments lists the comment: ok",
+      "ms": 10
+    },
+    {
+      "id": "issues.bad-label",
+      "group": "issues",
+      "title": "POST /issues with an unknown label is 422",
+      "ok": true,
+      "detail": "POST /issues with an unknown label is 422: ok",
+      "ms": 7
+    },
+    {
+      "id": "pulls.create",
+      "group": "pulls",
+      "title": "POST /pulls creates an open pull request from a head branch",
+      "ok": true,
+      "detail": "POST /pulls creates an open pull request from a head branch: ok",
+      "ms": 11
+    },
+    {
+      "id": "pulls.create-body",
+      "group": "pulls",
+      "title": "POST /pulls echoes the title and body",
+      "ok": true,
+      "detail": "POST /pulls echoes the title and body: ok",
+      "ms": 11
+    },
+    {
+      "id": "pulls.create-head-sha",
+      "group": "pulls",
+      "title": "the pull head.sha is the head branch tip",
+      "ok": false,
+      "detail": "GET /api/v3/repos/adaiversen/amber-thistle-pulls-create-head/pulls/1: body.head.sha is \"c058b07e8e824288867ce98f0c1015b1c6d1ddf3\", expected the head branch tip \"8291304138c18c4a9929faddc4f37431d680a047\"",
+      "ms": 10
+    },
+    {
+      "id": "pulls.create-base-sha",
+      "group": "pulls",
+      "title": "the pull base.sha is the base branch tip",
+      "ok": false,
+      "detail": "GET /api/v3/repos/adaiversen/amber-thistle-pulls-create-base/pulls/1: body.base.sha is \"3da36e19e715b3905c540f2ba4eb30979d288016\", expected the base tip \"c058b07e8e824288867ce98f0c1015b1c6d1ddf3\"",
+      "ms": 10
+    },
+    {
+      "id": "pulls.get-one",
+      "group": "pulls",
+      "title": "GET /pulls/{n} returns the pull request",
+      "ok": true,
+      "detail": "GET /pulls/{n} returns the pull request: ok",
+      "ms": 10
+    },
+    {
+      "id": "pulls.files-list",
+      "group": "pulls",
+      "title": "GET /pulls/{n}/files lists the changed path",
+      "ok": false,
+      "detail": "pull file config/token-pulls-files-list.css: status is \"removed\", expected added or modified",
+      "ms": 11
+    },
+    {
+      "id": "pulls.files-shape",
+      "group": "pulls",
+      "title": "pull files carry filename, status and the change counts",
+      "ok": true,
+      "detail": "pull files carry filename, status and the change counts: ok",
+      "ms": 10
+    },
+    {
+      "id": "pulls.files-multiple",
+      "group": "pulls",
+      "title": "GET /pulls/{n}/files lists every changed path",
+      "ok": true,
+      "detail": "GET /pulls/{n}/files lists every changed path: ok",
+      "ms": 10
+    },
+    {
+      "id": "pulls.merge-status",
+      "group": "pulls",
+      "title": "PUT /pulls/{n}/merge with merge_method=squash is 200",
+      "ok": true,
+      "detail": "PUT /pulls/{n}/merge with merge_method=squash is 200: ok",
+      "ms": 9
+    },
+    {
+      "id": "pulls.merge-body",
+      "group": "pulls",
+      "title": "the merge reply is {merged:true, sha, message}",
+      "ok": true,
+      "detail": "the merge reply is {merged:true, sha, message}: ok",
+      "ms": 21
+    },
+    {
+      "id": "pulls.merge-closes",
+      "group": "pulls",
+      "title": "the merged pull is closed, merged and carries merged_at",
+      "ok": true,
+      "detail": "the merged pull is closed, merged and carries merged_at: ok",
+      "ms": 11
+    },
+    {
+      "id": "pulls.merge-commit-on-default",
+      "group": "pulls",
+      "title": "the merge commit appears on the default branch",
+      "ok": true,
+      "detail": "the merge commit appears on the default branch: ok",
+      "ms": 10
+    },
+    {
+      "id": "pulls.merge-content-on-default",
+      "group": "pulls",
+      "title": "the squash content is on the default branch",
+      "ok": false,
+      "detail": "GET /api/v3/repos/adaiversen/amber-thistle-pulls-merge-content/contents/config/token-pulls-merge-content.css?ref=main: expected status 200, got 404 Not Found; body {\"message\":\"Not Found\"}\n",
+      "ms": 9
+    },
+    {
+      "id": "pulls.merge-commit-sha",
+      "group": "pulls",
+      "title": "the pull reports merge_commit_sha equal to the merge sha",
+      "ok": true,
+      "detail": "the pull reports merge_commit_sha equal to the merge sha: ok",
+      "ms": 10
+    },
+    {
+      "id": "pulls.merge-unknown",
+      "group": "pulls",
+      "title": "merging an unknown pull request is 404",
+      "ok": true,
+      "detail": "merging an unknown pull request is 404: ok",
+      "ms": 5
+    },
+    {
+      "id": "pulls.merge-conflict",
+      "group": "pulls",
+      "title": "merging a conflicted pull request is 405",
+      "ok": false,
+      "detail": "PUT /api/v3/repos/adaiversen/amber-thistle-pulls-merge-conflict/contents/config/token.css?branch=develop-conflict-b: expected status 200 or 201, got 409 Conflict; body {\"message\":\"Invalid request.\",\"errors\":[{\"code\":\"sha_mismatch\",\"field\":\"sha\"}]}\n",
+      "ms": 15
+    },
+    {
+      "id": "pulls.list-state-all",
+      "group": "pulls",
+      "title": "GET /pulls?state=all lists open and merged pull requests",
+      "ok": true,
+      "detail": "GET /pulls?state=all lists open and merged pull requests: ok",
+      "ms": 14
+    },
+    {
+      "id": "pulls.list-default-open",
+      "group": "pulls",
+      "title": "GET /pulls defaults to open pull requests",
+      "ok": true,
+      "detail": "GET /pulls defaults to open pull requests: ok",
+      "ms": 15
+    },
+    {
+      "id": "pulls.list-shape",
+      "group": "pulls",
+      "title": "GET /pulls returns the GitHub pull-request shape",
+      "ok": true,
+      "detail": "GET /pulls returns the GitHub pull-request shape: ok",
+      "ms": 8
+    },
+    {
+      "id": "pulls.get-unknown",
+      "group": "pulls",
+      "title": "GET an unknown pull request is 404",
+      "ok": true,
+      "detail": "GET an unknown pull request is 404: ok",
+      "ms": 4
+    },
+    {
+      "id": "protocol.content-type-json",
+      "group": "protocol",
+      "title": "every REST reply is application/json, never HTML",
+      "ok": true,
+      "detail": "every REST reply is application/json, never HTML: ok",
+      "ms": 10
+    },
+    {
+      "id": "protocol.unknown-route-json-404",
+      "group": "protocol",
+      "title": "an unknown /api/v3 route is a JSON 404",
+      "ok": true,
+      "detail": "an unknown /api/v3 route is a JSON 404: ok",
+      "ms": 1
+    },
+    {
+      "id": "protocol.malformed-body-400",
+      "group": "protocol",
+      "title": "a malformed JSON body is a 400",
+      "ok": true,
+      "detail": "a malformed JSON body is a 400: ok",
+      "ms": 1
+    },
+    {
+      "id": "protocol.request-id",
+      "group": "protocol",
+      "title": "every reply carries a non-empty X-GitHub-Request-Id",
+      "ok": true,
+      "detail": "every reply carries a non-empty X-GitHub-Request-Id: ok",
+      "ms": 8
+    },
+    {
+      "id": "protocol.error-message",
+      "group": "protocol",
+      "title": "401, 404 and 422 bodies carry a string message",
+      "ok": true,
+      "detail": "401, 404 and 422 bodies carry a string message: ok",
+      "ms": 16
+    },
+    {
+      "id": "graphql.viewer-login",
+      "group": "graphql",
+      "title": "query { viewer { login } } answers the token owner",
+      "ok": true,
+      "detail": "viewer.login is adaiversen",
+      "ms": 4
+    },
+    {
+      "id": "graphql.repository-fields",
+      "group": "graphql",
+      "title": "repository(owner:, name:) answers id, databaseId, name, owner, defaultBranchRef, viewerPermission and hasIssuesEnabled",
+      "ok": false,
+      "detail": "git fixture for the default branch main: unpack failed: okok refs/heads/main",
+      "ms": 14
+    },
+    {
+      "id": "graphql.introspection-issue",
+      "group": "graphql",
+      "title": "__type(name: \"Issue\") lists the fields gh feature-detects",
+      "ok": true,
+      "detail": "Issue lists 8 field(s), including id, number, title, state and body",
+      "ms": 2
+    },
+    {
+      "id": "graphql.introspection-types",
+      "group": "graphql",
+      "title": "__type lists PullRequest, Repository and SearchType (gh's other probes, one check)",
+      "ok": true,
+      "detail": "PullRequest (10), Repository (12) and SearchType (3) describe their schema",
+      "ms": 3
+    },
+    {
+      "id": "graphql.issues-open-order",
+      "group": "graphql",
+      "title": "issues(first: 10, states: [OPEN], orderBy: CREATED_AT DESC) filters and orders",
+      "ok": true,
+      "detail": "3 OPEN issue(s) in CREATED_AT DESC order, the closed issue excluded",
+      "ms": 7
+    },
+    {
+      "id": "graphql.issue-by-number",
+      "group": "graphql",
+      "title": "issue(number:) reads one issue",
+      "ok": true,
+      "detail": "issue #1 reads back with its title, state, body and id",
+      "ms": 2
+    },
+    {
+      "id": "graphql.create-issue",
+      "group": "graphql",
+      "title": "createIssue creates an issue the REST view sees",
+      "ok": true,
+      "detail": "createIssue made #5 and the REST view reads it open with the same title",
+      "ms": 2
+    },
+    {
+      "id": "graphql.close-issue",
+      "group": "graphql",
+      "title": "closeIssue closes an issue the REST view shows closed",
+      "ok": true,
+      "detail": "closeIssue closed #6 and the REST view shows it closed",
+      "ms": 5
+    },
+    {
+      "id": "graphql.pull-requests-list",
+      "group": "graphql",
+      "title": "pullRequests(first: 5) lists number, headRefName, baseRefName, mergeable and state",
+      "ok": false,
+      "detail": "git fixture for the default branch main: unpack failed: okok refs/heads/main",
+      "ms": 0
+    },
+    {
+      "id": "graphql.pull-request-files",
+      "group": "graphql",
+      "title": "pullRequest(number:).files lists the changed paths",
+      "ok": false,
+      "detail": "git fixture for the default branch main: unpack failed: okok refs/heads/main",
+      "ms": 1
+    },
+    {
+      "id": "graphql.create-pull-request",
+      "group": "graphql",
+      "title": "createPullRequest creates a pull request",
+      "ok": false,
+      "detail": "git fixture for the default branch main: unpack failed: okok refs/heads/main",
+      "ms": 0
+    },
+    {
+      "id": "graphql.merge-pull-request",
+      "group": "graphql",
+      "title": "mergePullRequest SQUASH merges and the REST view shows merged: true",
+      "ok": false,
+      "detail": "git fixture for the default branch main: unpack failed: okok refs/heads/main",
+      "ms": 0
+    },
+    {
+      "id": "graphql.add-comment",
+      "group": "graphql",
+      "title": "addComment writes an issue comment the REST view lists",
+      "ok": true,
+      "detail": "addComment wrote a comment on #7 and the REST view lists it",
+      "ms": 5
+    },
+    {
+      "id": "graphql.invalid-field",
+      "group": "graphql",
+      "title": "an invalid field is a 200 with an errors array",
+      "ok": true,
+      "detail": "HTTP 200 with 1 GraphQL error(s) naming noSuchFieldOnViewer",
+      "ms": 1
+    },
+    {
+      "id": "graphql.unauthenticated",
+      "group": "graphql",
+      "title": "an unauthenticated query is a 401",
+      "ok": true,
+      "detail": "an unauthenticated POST /api/graphql is 401",
+      "ms": 2
+    },
+    {
+      "id": "graphql.node-repository",
+      "group": "graphql",
+      "title": "node(id:) round-trips a repository",
+      "ok": true,
+      "detail": "node(id:) round-trips repository adaiversen/amber-thistle-graphql",
+      "ms": 1
+    },
+    {
+      "id": "graphql.unknown-repository",
+      "group": "graphql",
+      "title": "an unknown repository reads data.repository = null with no errors",
+      "ok": true,
+      "detail": "data.repository is null for \"amber-thistle-graphql-missing\" with no errors",
+      "ms": 2
+    },
+    {
+      "id": "graphql.batched-operations",
+      "group": "graphql",
+      "title": "two operation documents in one body answer in order",
+      "ok": true,
+      "detail": "two operation documents in one body answer two data objects in order",
+      "ms": 2
+    },
+    {
+      "id": "graphql.global-id-stability",
+      "group": "graphql",
+      "title": "global ids are opaque and equal on repeated reads",
+      "ok": true,
+      "detail": "the repository and issue global ids are non-empty, opaque and equal on repeated reads",
+      "ms": 4
+    },
+    {
+      "id": "graphql.issues-pagination",
+      "group": "graphql",
+      "title": "issues(first, after) pages by cursor to the end",
+      "ok": true,
+      "detail": "7 issues paged by the cursor as 5 + 2",
+      "ms": 11
+    },
+    {
+      "id": "mcp.initialize",
+      "group": "mcp",
+      "title": "initialize: serverInfo.name/version and capabilities.tools, over whichever era the server negotiates",
+      "ok": true,
+      "detail": "initialize: github-core-clone 1.0.0, protocol 2025-11-25, tools capability present",
+      "ms": 6
+    },
+    {
+      "id": "mcp.server-discover",
+      "group": "mcp",
+      "title": "server/discover: a DiscoverResult with supportedVersions, or the pre-discover era",
+      "ok": true,
+      "detail": "pre-discover revision (HTTP 200, JSON-RPC -32601; the server answers initialize)",
+      "ms": 3
+    },
+    {
+      "id": "mcp.tools-list",
+      "group": "mcp",
+      "title": "tools/list: at least six tools, all six required ones present by name or obvious alias",
+      "ok": true,
+      "detail": "13 tools; all six present: create_repo->create_repository, get_repo->get_repository, create_issue->create_issue, list_issues->list_issues, create_pull_request->create_pull_request, merge_pull_request->merge_pull_request",
+      "ms": 5
+    },
+    {
+      "id": "mcp.tool-schemas",
+      "group": "mcp",
+      "title": "every tool has a non-empty description and an inputSchema of type object",
+      "ok": true,
+      "detail": "all 13 tools have a description and an object inputSchema",
+      "ms": 5
+    },
+    {
+      "id": "mcp.create-issue",
+      "group": "mcp",
+      "title": "tools/call create_issue creates an issue the REST surface lists",
+      "ok": true,
+      "detail": "created issue #1 over MCP; REST lists it with the same title",
+      "ms": 12
+    },
+    {
+      "id": "mcp.list-issues",
+      "group": "mcp",
+      "title": "tools/call list_issues returns an issue the repository holds",
+      "ok": true,
+      "detail": "list_issues returned issue #1 (by title)",
+      "ms": 15
+    },
+    {
+      "id": "mcp.create-pull-request",
+      "group": "mcp",
+      "title": "tools/call create_pull_request opens a pull request REST reads back with the same head and base",
+      "ok": true,
+      "detail": "pull request #1 created over MCP; REST reads mcp-head-6a09e667-pr-create into main, state open",
+      "ms": 14
+    },
+    {
+      "id": "mcp.merge-pull-request",
+      "group": "mcp",
+      "title": "tools/call merge_pull_request merges; REST reads merged:true",
+      "ok": true,
+      "detail": "pull request #1 merged over MCP; REST reads merged:true, state closed",
+      "ms": 13
+    },
+    {
+      "id": "mcp.unknown-tool",
+      "group": "mcp",
+      "title": "an unknown tool name answers JSON-RPC -32602 or -32601, never HTTP 500",
+      "ok": true,
+      "detail": "HTTP 200, JSON-RPC -32601: Unknown tool: mcp_no_such_tool_6a09e667",
+      "ms": 4
+    },
+    {
+      "id": "mcp.parse-error",
+      "group": "mcp",
+      "title": "a body that is not JSON answers HTTP 400 with JSON-RPC -32700",
+      "ok": true,
+      "detail": "HTTP 400, JSON-RPC -32700 parse error",
+      "ms": 4
+    },
+    {
+      "id": "mcp.missing-arguments",
+      "group": "mcp",
+      "title": "tools/call with missing required arguments answers isError:true or JSON-RPC -32602",
+      "ok": true,
+      "detail": "isError:true",
+      "ms": 4
+    },
+    {
+      "id": "mcp.concurrent-calls",
+      "group": "mcp",
+      "title": "two concurrent tool calls answer under their own ids and their own objects",
+      "ok": true,
+      "detail": "two concurrent tools/call answers kept their ids (concurrent-left-6a09e667, concurrent-right-6a09e667) and their own repositories",
+      "ms": 9
+    },
+    {
+      "id": "mcp.tools-list-idempotent",
+      "group": "mcp",
+      "title": "two tools/list answers hold the same tools array, byte for byte",
+      "ok": true,
+      "detail": "13 tools, byte-identical over two calls",
+      "ms": 5
+    },
+    {
+      "id": "mcp.rest-parity",
+      "group": "mcp",
+      "title": "a repository and an issue created over MCP are the same objects over REST, ids stable",
+      "ok": true,
+      "detail": "repo adaiversen/mcp-6a09e667-parity id 119 and issue #1 id 37 are the same objects over MCP and REST, stable across reads",
+      "ms": 11
+    },
+    {
+      "id": "mcp.auth-required",
+      "group": "mcp",
+      "title": "a tools/call with no Authorization header answers HTTP 401",
+      "ok": true,
+      "detail": "unauthenticated tools/call -> HTTP 401",
+      "ms": 4
+    }
+  ],
+  "columns": {
+    "feature": 400,
+    "agent": 200,
+    "perf": 99,
+    "score": 699,
+    "working": 1
+  },
+  "perf": {
+    "version": 1,
+    "calibrated": true,
+    "workloads": [
+      {
+        "name": "push",
+        "rounds": [],
+        "p50_ms": 1000000000,
+        "p99_ms": 1000000000,
+        "ops": 200,
+        "points": 0,
+        "error": "Error: push refs/heads/main: unpack failed (okok refs/heads/main)"
+      },
+      {
+        "name": "clone",
+        "rounds": [],
+        "p50_ms": 1000000000,
+        "p99_ms": 1000000000,
+        "ops": 50,
+        "points": 0,
+        "error": "Error: push refs/heads/main: unpack failed (okok refs/heads/main)"
+      },
+      {
+        "name": "read",
+        "rounds": [
+          940.518,
+          643.697,
+          616.446
+        ],
+        "p50_ms": 643.697,
+        "p99_ms": 940.518,
+        "ops": 2000,
+        "points": 50
+      },
+      {
+        "name": "write",
+        "rounds": [
+          113.032,
+          90.581,
+          90.965
+        ],
+        "p50_ms": 90.965,
+        "p99_ms": 113.032,
+        "ops": 200,
+        "points": 49
+      }
+    ],
+    "tiers": {
+      "push": 0,
+      "clone": 0,
+      "read": 4,
+      "write": 3
+    },
+    "points": {
+      "push": 0,
+      "clone": 0,
+      "read": 50,
+      "write": 49
+    },
+    "perf_p50_us": 241979,
+    "points_total": 99,
+    "notes": [
+      "push: Error: push refs/heads/main: unpack failed (okok refs/heads/main)",
+      "clone: Error: push refs/heads/main: unpack failed (okok refs/heads/main)",
+      "perf_p50_us is the geometric mean of the 2 workload(s) that measured"
+    ]
+  }
+}
